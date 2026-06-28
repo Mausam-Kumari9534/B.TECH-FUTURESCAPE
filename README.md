@@ -1,73 +1,128 @@
-# Welcome to your Lovable project
+# B.TECH FUTURESCAPE
 
-## Project info
+[![React](https://img.shields.github.io/badge/React-18.3-blue?logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.github.io/badge/TypeScript-5.8-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.github.io/badge/Vite-5.4-purple?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.github.io/badge/TailwindCSS-3.4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.github.io/badge/Framer_Motion-12.2-ff69b4?logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
-**URL**: https://lovable.dev/projects/0b736a16-436a-400c-82f6-8e142b92b046
+An interactive, premium career guidance platform designed to help engineering students explore cutting-edge career paths, salary insights, and step-by-step learning roadmaps across four major B.Tech domains.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🌟 Features
 
-**Use Lovable**
+- **Futuristic Dark & Light Themes**: Smooth, adaptive theme transitions between a deep slate-navy dark mode and a clean off-white light mode.
+- **Glassmorphic UI Design**: Custom glassmorphism with subtle glowing highlights, gradients, and 3D shadows.
+- **Detailed Career Roadmaps**: Expandable career cards showing structured learning paths (Frontend, Backend, VLSI, CAD, Site Engineering, etc.), average packages, and industry demand.
+- **Interactive Micro-animations**: Smooth hover transitions, spinning icons, and entering animations powered by Framer Motion.
+- **Responsive Layout**: Fully optimized for desktop, tablet, and mobile devices.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0b736a16-436a-400c-82f6-8e142b92b046) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📐 Architecture & Flow
 
-**Use your preferred IDE**
+### ASCII Architecture Diagram
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```text
++-----------------------------------------------------------------+
+|                           VITE APP                              |
++-----------------------------------------------------------------+
+                                |
+                                v
++-----------------------------------------------------------------+
+|                           ROUTING                               |
+|        (BrowserRouter -> App.tsx -> ThemeToggle)                |
++-----------------------------------------------------------------+
+         |                  |                |               |
+         v                  v                v               v
+    +---------+       +-----------+      +-------+       +-------+
+    |  Home   | ----> |  Streams  | ---> | CS/IT |       | Civil |
+    | (Index) |       | Selection |      +-------+       +-------+
+    +---------+       +-----------+      | Mech  |       | ECE   |
+         |                  |            +-------+       +-------+
+         +------------------+----------------+---------------+
+                                |
+                                v
+                +-------------------------------+
+                |           COMPONENTS          |
+                | - FloatingBlobs (BG)          |
+                | - CareerCard (Roadmaps)       |
+                | - GlassCard (Layouts)         |
+                | - Footer (Creator Info)       |
+                +-------------------------------+
 ```
 
-**Edit a file directly in GitHub**
+### Navigation Flowchart
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```mermaid
+graph TD
+    A[Start: Index.tsx /] -->|Explore / Scroll| B[Explore Departments Section]
+    A -->|Click 'Click Here'| C[Streams.tsx /streams]
+    B -->|Click Branch Card| D[Branch Pages]
+    C -->|Select Branch Card| D
+    
+    subgraph Branch Pages
+        D1[CSIT.tsx /cs-it]
+        D2[Mechanical.tsx /mechanical]
+        D3[Electronics.tsx /electronics]
+        D4[Civil.tsx /civil]
+    end
+    
+    D1 & D2 & D3 & D4 -->|Click Career Card| E[Expandable CareerCard Component]
+    E -->|View Roadmap| F[Interactive Roadmaps]
+    
+    D1 & D2 & D3 & D4 -->|Click 'Back to Streams'| C
+    C -->|Click 'Back to Home'| A
+    
+    G[ThemeToggle Component] -.--->|Toggles Class| H[document.documentElement .light]
+```
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🛠️ Tech Stack
 
-## What technologies are used for this project?
+- **Framework**: React 18 (TypeScript)
+- **Build Tool**: Vite
+- **Styling**: TailwindCSS & Custom CSS Variables (HSL)
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **State/Routing**: React Router DOM v6
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🚀 Getting Started
 
-## How can I deploy this project?
+### Prerequisites
 
-Simply open [Lovable](https://lovable.dev/projects/0b736a16-436a-400c-82f6-8e142b92b046) and click on Share -> Publish.
+Make sure you have [Node.js](https://nodejs.org/) installed.
 
-## Can I connect a custom domain to my Lovable project?
+### Installation
 
-Yes, you can!
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Mausam-Kumari9534/B.TECH-FUTURESCAPE.git
+   cd B.TECH-FUTURESCAPE
+   ```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:8082](http://localhost:8082) in your browser to view the app.
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## ✍️ Creator
+
+Designed & Developed with ❤️ by **[Mausam Kumari](https://github.com/Mausam-Kumari9534)**.
