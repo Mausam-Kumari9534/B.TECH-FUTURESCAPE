@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 224 45% 6%; /* Deep slate navy */
+    --foreground: 210 40% 98%;
+
+    --card: 224 40% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 40% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 0 0% 100%; /* White in Dark Mode */
+    --primary-foreground: 224 45% 6%;
+
+    --secondary: 210 40% 98%; /* Off-white in Dark Mode */
+    --secondary-foreground: 224 45% 6%;
+
+    --muted: 224 20% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 210 40% 90%; /* Light gray in Dark Mode */
+    --accent-foreground: 224 45% 6%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 224 30% 15%;
+    --input: 224 30% 12%;
+    --ring: 0 0% 100%;
+
+    --radius: 1rem;
+
+    /* Theme colors */
+    --theme-indigo: 250 89% 65%;
+    --theme-teal: 190 90% 45%;
+    --theme-rose: 330 81% 60%;
+    --deep-space: 224 45% 6%;
+    
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(250 89% 65% / 0.15), hsl(190 90% 45% / 0.15));
+    --gradient-card: linear-gradient(135deg, hsl(224 40% 9% / 0.85), hsl(224 40% 14% / 0.85));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(250 89% 65% / 0.15), transparent 65%), 
+                     radial-gradient(ellipse at bottom, hsl(190 90% 45% / 0.1), transparent 65%);
+    
+    /* Glows */
+    --glow-cyan: 0 0 20px hsl(250 89% 65% / 0.2), 0 0 40px hsl(250 89% 65% / 0.1);
+    --glow-purple: 0 0 20px hsl(190 90% 45% / 0.2), 0 0 40px hsl(190 90% 45% / 0.1);
+    --glow-card: 0 8px 32px hsl(250 89% 65% / 0.04);
+    
+    /* 3D Shadows */
+    --shadow-3d: 0 4px 6px hsl(224 45% 4% / 0.4),
+                 0 10px 20px hsl(250 89% 65% / 0.06),
+                 0 20px 40px hsl(190 90% 45% / 0.05);
+    --shadow-3d-hover: 0 8px 12px hsl(224 45% 4% / 0.5),
+                       0 20px 40px hsl(250 89% 65% / 0.12),
+                       0 30px 60px hsl(190 90% 45% / 0.08);
+
+    --sidebar-background: 224 40% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 250 89% 65%;
+    --sidebar-primary-foreground: 224 45% 6%;
+    --sidebar-accent: 224 30% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 224 30% 15%;
+    --sidebar-ring: 250 89% 65%;
+  }
+
+  .light {
+    --background: 210 40% 98%; /* Soft light gray: #f8fafc */
+    --foreground: 224 47% 11%; /* Deep slate navy: #0f172a */
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 47% 11%;
+
+    --primary: 250 89% 55%; /* Slightly darker Indigo for contrast */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 190 90% 40%; /* Slightly darker Teal/Cyan */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 30% 94%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 330 81% 55%; /* Soft Rose */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%; /* e2e8f0 */
+    --input: 210 30% 94%;
+    --ring: 250 89% 55%;
+
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(250 89% 55% / 0.08), hsl(190 90% 40% / 0.08));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.95), hsl(210 40% 98% / 0.95));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(250 89% 55% / 0.08), transparent 65%), 
+                     radial-gradient(ellipse at bottom, hsl(190 90% 40% / 0.05), transparent 65%);
+    
+    /* Glows */
+    --glow-cyan: 0 0 20px hsl(250 89% 55% / 0.12), 0 0 40px hsl(250 89% 55% / 0.06);
+    --glow-purple: 0 0 20px hsl(190 90% 40% / 0.12), 0 0 40px hsl(190 90% 40% / 0.06);
+    --glow-card: 0 8px 32px rgba(0, 0, 0, 0.04);
+    
+    /* 3D Shadows */
+    --shadow-3d: 0 4px 6px rgba(0, 0, 0, 0.02),
+                 0 10px 20px rgba(99, 102, 241, 0.04),
+                 0 20px 40px rgba(6, 182, 212, 0.03);
+    --shadow-3d-hover: 0 8px 12px rgba(0, 0, 0, 0.04),
+                       0 20px 40px rgba(99, 102, 241, 0.08),
+                       0 30px 60px rgba(6, 182, 212, 0.06);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    transition: background-color 0.3s ease, border-color 0.3s ease, text-shadow 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+  
+  .glow-purple {
+    box-shadow: var(--glow-purple);
+  }
+  
+  .glow-card {
+    box-shadow: var(--glow-card);
+  }
+  
+  .shadow-3d {
+    box-shadow: var(--shadow-3d);
+  }
+  
+  .shadow-3d-hover {
+    box-shadow: var(--shadow-3d-hover);
+  }
+  
+  .gradient-neon {
+    background: var(--gradient-neon);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(99, 102, 241, 0.12);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  :root[class~="light"] .glass {
+    background: rgba(255, 255, 255, 0.7);
+  }
+  :root:not(.light) .glass {
+    background: rgba(10, 15, 30, 0.7);
+  }
+  
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(99, 102, 241, 0.22);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  :root[class~="light"] .glass-strong {
+    background: rgba(255, 255, 255, 0.85);
+  }
+  :root:not(.light) .glass-strong {
+    background: rgba(15, 22, 42, 0.85);
+  }
+  
+  .text-glow-cyan {
+    text-shadow: 0 0 8px hsl(250 89% 65% / 0.4), 0 0 20px hsl(250 89% 65% / 0.2);
+  }
+  
+  .text-glow-purple {
+    text-shadow: 0 0 8px hsl(190 90% 45% / 0.4), 0 0 20px hsl(190 90% 45% / 0.2);
+  }
+
+  .text-card-title {
+    color: hsl(var(--primary));
+    transition: color 0.3s ease;
+  }
+  :root:not(.light) .text-card-title {
+    color: hsl(var(--foreground));
+  }
+}
