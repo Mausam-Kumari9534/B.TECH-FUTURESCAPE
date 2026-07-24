@@ -1,0 +1,32 @@
+version: 2
+
+updates:
+  # Root package.json
+  - package-ecosystem: "npm"
+    directory: "/"
+
+    schedule:
+      interval: "daily"
+      time: "04:00"
+      timezone: "Asia/Kolkata"
+
+    open-pull-requests-limit: 5
+
+    versioning-strategy: increase
+
+    commit-message:
+      prefix: "deps"
+
+    labels:
+      - "dependencies"
+
+    reviewers:
+      - "Mausam-Kumari9534"
+
+    assignees:
+      - "Mausam-Kumari9534"
+
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
